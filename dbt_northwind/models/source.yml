@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: northwind_csv
+    database: dbt_demo_db 
+    schema: dbt_source_dev
+    tables:
+      - name: orders
+      - name: customers
+      - name: categories
+      - name: employees
+      - name: products
+      - name: order_details
+      - name: dim_date
+      - name: location_lookup
+
+  - name: exchange_api
+    database: dbt_demo_db  
+    schema: dbt_source_dev 
+    tables:
+      - name: exchange_rates

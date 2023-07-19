@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: inter_products
+    description: "generic testcase for intermediate products table"
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('products')
+    columns:
+      - name: product_id
+        description: "The primary key for this products table"
+        tests:
+          - unique
+          - not_null
+
+      - name: product_name
+        tests:
+          - not_null
+
+      - name: category_id
+        tests:
+          - not_null
+
+      - name: supplier_id
+        tests:
+          - not_null
+
+      - name: quantity_per_unit
+        tests:
+          - not_null
+
+      - name: unit_price
+        tests:
+          - not_null
+
+      - name: units_in_stock
+        tests:
+          - not_null
+
+      - name: units_on_order
+        tests:
+          - not_null
+
+
+
+

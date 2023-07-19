@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: inter_order_details
+    description: "generic testcase for intermediate orders details table"
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('order_details')
+    columns:
+      - name: order_id
+        description: "The primary key for this orders details table"
+        tests:
+          - not_null
+
+      - name: unit_price
+        tests:
+          - not_null
+
+      - name: discount
+        tests:
+          - not_null

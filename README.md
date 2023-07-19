@@ -1,1 +1,1 @@
-# dbt-airflow-northwind
+# dbt-demo-northwind
