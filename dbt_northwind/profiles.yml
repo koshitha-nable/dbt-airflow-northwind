@@ -3,9 +3,9 @@ dbt_northwind:
   outputs:
     dev:
       type: postgres
-      host: 20.2.72.244
-      user: postgres # replace with real username
-      pass: postgres # replace with real password
+      host: dbt-postgres
+      user: admin # replace with real username
+      pass: admin # replace with real password
       port: 5432
       dbname: dbt_demo_db
       schema: dbt
