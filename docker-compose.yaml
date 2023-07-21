@@ -70,6 +70,17 @@ services:
     ports:
       - "5432:5432"
 
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-northwind
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@local.net
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5050
+    ports:
+      - "5050:5050"
+
   redis:
     image: redis:latest
     expose:
