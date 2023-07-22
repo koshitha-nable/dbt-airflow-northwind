@@ -102,8 +102,8 @@ dbt_debug = BashOperator(
 
 dbt_seed = BashOperator(
     task_id='load_csv',
-    #bash_command='pwd',
-   bash_command='cd /dbt_northwind && dbt seed  --profiles-dir .',
+    #bash_command='dbt --version',
+    bash_command=' cd /dbt_northwind && dbt deps && dbt seed  --profiles-dir .',
     dag=dag,
 )
 
