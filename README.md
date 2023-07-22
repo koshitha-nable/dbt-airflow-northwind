@@ -62,6 +62,11 @@ pip install -r requirements.txt
     ```sh
      cd dockerairflow
      docker compose up airflow-init
+     docker-compose build airflow-webserver
+
+# Run the entire Docker Compose environment
+docker-compose up
+
     ```
 2. check all docker application services up and running 
     Running Airflow:
