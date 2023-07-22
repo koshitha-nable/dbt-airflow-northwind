@@ -1,0 +1,18 @@
+# Extend the official Apache Airflow image
+FROM apache/airflow:2.6.3
+
+# Install Git and other required packages
+USER root
+RUN apt-get update && \
+    apt-get install -y git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Switch back to the original user
+USER airflow
+
+# Optionally, you can clone a Git repository inside the container
+# For example, to clone a repository into the /opt/airflow/dags directory:
+# RUN git clone https://github.com/exampleuser/example-repo.git /opt/airflow/dags/example-repo
+
+# Add any other customizations or dependencies here if needed
