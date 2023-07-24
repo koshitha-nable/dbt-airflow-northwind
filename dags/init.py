@@ -117,13 +117,13 @@ dbt_run = BashOperator(
 dbt_dim = BashOperator(
     task_id='load_dimensions',
     #bash_command='pwd',
-   bash_command='cd /dbt_northwind && dbt run --select fact.date_lookup fact.dim_customer fact.dim_employee fact.dim_location fact.dim_product --profiles-dir .',
+   bash_command='cd /dbt_northwind && dbt run --select date_lookup dim_customer dim_location dim_product --profiles-dir .',
     dag=dag,
 )
 dbt_fact = BashOperator(
     task_id='load_fact',
     #bash_command='pwd',
-   bash_command='cd /dbt_northwind && dbt run --select fact.fact_order --profiles-dir .',
+   bash_command='cd /dbt_northwind && dbt run --select fact_order --profiles-dir .',
     dag=dag,
 )
 dbt_test = BashOperator(
