@@ -1,0 +1,12 @@
+dbt_northwind:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: dbt-postgres
+      user: admin # replace with real username
+      pass: admin # replace with real password
+      port: 5432
+      dbname: dbt_demo_db
+      schema: dbt
+      threads: 4

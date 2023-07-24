@@ -1,0 +1,1 @@
+select * from {{ source('northwind_csv', 'location_lookup') }}
