@@ -110,7 +110,20 @@ dbt_seed = BashOperator(
 dbt_run = BashOperator(
     task_id='transform_data',
     #bash_command='pwd',
-   bash_command='cd /dbt_northwind && dbt run  --profiles-dir .',
+   bash_command='cd /dbt_northwind && dbt run --select intermediate.*  --profiles-dir .',
+    dag=dag,
+)
+
+dbt_dim = BashOperator(
+    task_id='load_dimensions',
+    #bash_command='pwd',
+   bash_command='cd /dbt_northwind && dbt run --select fact.date_lookup fact.dim_customer fact.dim_employee fact.dim_location fact.dim_product --profiles-dir .',
+    dag=dag,
+)
+dbt_fact = BashOperator(
+    task_id='load_fact',
+    #bash_command='pwd',
+   bash_command='cd /dbt_northwind && dbt run --select fact.fact_order --profiles-dir .',
     dag=dag,
 )
 dbt_test = BashOperator(
@@ -119,4 +132,4 @@ dbt_test = BashOperator(
    bash_command='cd /dbt_northwind && dbt test  --profiles-dir .',
     dag=dag,
 )
-dbt_install >> dbt_version >> dbt_debug >> check_directory >> dbt_seed >> dbt_run >> dbt_test
+dbt_install >> dbt_version >> dbt_debug >> check_directory >> dbt_seed >> dbt_run >>dbt_dim >>dbt_fact>> dbt_test
