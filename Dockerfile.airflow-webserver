@@ -16,3 +16,9 @@ USER airflow
 # RUN git clone https://github.com/exampleuser/example-repo.git /opt/airflow/dags/example-repo
 
 # Add any other customizations or dependencies here if needed
+
+# Install additional Python packages using pip
+RUN pip install pandas numpy requests apache-airflow-providers-github
+
+# Set an environment variable for configuration
+#ENV MY_CUSTOM_SETTING="some_value"
