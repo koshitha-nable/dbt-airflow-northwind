@@ -30,11 +30,11 @@ def handle_failure(context):
 
 def send_notification():
     # Email configuration
-    sender_email = 'savindukoshitha.a@gmail.com'
-    recipient_email = 'koshithaa@n-able.biz'
+    sender_email = 'xxxxx.a@gmail.com'
+    recipient_email = 'xxx'
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
-    smtp_username = 'savindukoshitha.a@gmail.com'
+    smtp_username = 'xxxx@gmail.com'
     smtp_password = ''
 
     # Email content
